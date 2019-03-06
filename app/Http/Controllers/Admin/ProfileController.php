@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Profile;
 
 class ProfileController extends Controller
@@ -31,23 +30,23 @@ class ProfileController extends Controller
 
         return redirect('admin/profile/create');
     }
-
     public function edit(Request $request)
     {
-        // Profile Modelからデータを取得する
+        // News Modelからデータを取得する
         $profile = Profile::find($request->id);
         if (empty($profile)) {
             abort(404);
         }
-        return view('admin.profile.edit');
+        return view('admin.profile.edit', ['profile_form' => $profile]);
     }
+
 
     public function update(Request $request)
     {
         // Validationをかける
         $this->validate($request, Profile::$rules);
-        // Profiles Modelからデータを取得する
-        $profile =  new Profile;
+        // News Modelからデータを取得する
+        $profile = Profile::find($request->id);
         // 送信されてきたフォームデータを格納する
         $profile_form = $request->all();
 
@@ -55,6 +54,6 @@ class ProfileController extends Controller
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
 
-        return redirect('admin/profile/edit');
+        return redirect('admin/profile');
     }
 }
