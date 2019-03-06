@@ -33,7 +33,7 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="body">性別</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="form-group row">
