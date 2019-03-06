@@ -39,14 +39,14 @@ class ProfileController extends Controller
         if (empty($profile)) {
             abort(404);
         }
-        return view('admin.news.edit', ['profile_form' => $profile]);
+        return view('admin.profile.edit');
     }
 
     public function update(Request $request)
     {
         // Validationをかける
         $this->validate($request, Profile::$rules);
-        // Profile Modelからデータを取得する
+        // Profiles Modelからデータを取得する
         $profile =  new Profile;
         // 送信されてきたフォームデータを格納する
         $profile_form = $request->all();

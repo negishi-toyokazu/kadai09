@@ -6,7 +6,7 @@
 {{-- profile.blade.phpの@yield('title')に'プロフィール'を埋め込む --}}
 
 
-@section('title', '根岸豊和のプロフィール')
+@section('title', 'Myプロフィール')
 
 {{-- profile.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>根岸豊和のプロフィール</h2>
+                <h2>Myプロフィール</h2>
                 <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -27,25 +27,25 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">氏名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="title" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">性別</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="title" value="{{ old('gender') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">趣味</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="title" value="{{ old('hobby') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" rows="20">{{ old('introduction') }}</textarea>
                         </div>
                     </div>
                     {{ csrf_field() }}
