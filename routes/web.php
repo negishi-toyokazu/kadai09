@@ -38,4 +38,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'NewsController@index');
-Route::get('/', 'NewsController@profile');
+Route::get('/profile', 'NewsController@profile');
