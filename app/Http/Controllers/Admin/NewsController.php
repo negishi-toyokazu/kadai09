@@ -11,7 +11,7 @@ use Carbon\Carbon;
 
 class NewsController extends Controller
 {
-  
+
     public function add()
     {
         return view('admin.news.create');
@@ -27,8 +27,8 @@ class NewsController extends Controller
 
         // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
         if (isset($form['image'])) {
-            $path = $path = $result['ObjectURL'];
-            $news->image_path = basename($path);
+          $path = Storage::disk('s3')->putFile('/', $request->file('image'), 'public');
+          $news->image_path = Storage::disk('s3')->url($path);
         } else {
             $news->image_path = null;
         }
