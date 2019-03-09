@@ -34,11 +34,8 @@ class NewsController extends Controller
 
     public function profile(Request $request)
     {
-      $profiles = Profile::orderBy('created_at', 'desc')->first();
+        $profiles = Profile::orderBy('created_at', 'desc')->first();
 
-      return view('news.profile', ['profiles' => $profiles]);
-
-
+        return view('news.profile', ['profiles' => $profiles]);
     }
-
-    
+}
