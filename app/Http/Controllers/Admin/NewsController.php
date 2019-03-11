@@ -74,6 +74,7 @@ class NewsController extends Controller
         $this->validate($request, News::$rules);
         $news = News::find($request->id);
         $news_form = $request->all();
+
         if ($request->remove == 'true') {
             $news_form['image_path'] = null;
         } elseif ($request->file('image')) {
